@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Finder Survey Page</title>
+
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 class="text-left">
+        <span class="fa fa-users"></span> Friend Finder</h1>
+      <hr>
+      <h2 class="text-left">Survey Questions</h2>
+      <br>
+      <div class="text-left">
+        <a href="/">
+          <button class="btn btn-lg btn-default">
+            <span class="fa fa-home"></span>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <!-- Reservation Page -->
+        <!-- <div class="card">
+          <div class="card-header"><bold>About You</bold>
+          </div>
+          <div class="card-body"> -->
+            <form role="form">
+              <div class="form-group">
+                <label for="name">Name (required)</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+              <div class="form-group">
+                <label for="image-link">Link to Photo Image (required)</label>
+                <input type="text" class="form-control" id="image-link">
+              </div>
+              <div class="form-group">
+                <label for="answer1">I make friends easily.</label>
+                <select class="form-control" id="answer1">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer2">I become overwhelmed by events.</label>
+                <select class="form-control" id="answer2">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer3">I believe that there is no absolute right and wrong.</label>
+                <select class="form-control" id="answer3">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer4">I stick to the rules.</label>
+                <select class="form-control" id="answer4">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer5">I like helping people.</label>
+                <select class="form-control" id="answer5">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer6">I'm easily disappointed.</label>
+                <select class="form-control" id="answer6">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer7">I have highly original ideas.</label>
+                <select class="form-control" id="answer7">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer8">	I am modest about what I have achieved.</label>
+                <select class="form-control" id="answer8">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer9">I usually feel relaxed.</label>
+                <select class="form-control" id="answer9">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="answer10">	I am prepared to tell people if they are mistaken.</label>
+                <select class="form-control" id="answer10">
+                  <option>1 (strongly disagree)</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5 (strongly agree)</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+            </form>
+          <!-- </div>
+        </div> -->
+      </div>
+    </div>
+
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          <a href="/api/friends">API Friends List</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+  // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+  // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+  $(".submit").on("click", function(event) {
+    event.preventDefault();
+
+    // Here we grab the form elements
+    var newFriend = {
+      name: $("#name").val().trim(),
+      imageLink: $("#image-link").val().trim(),
+      answer1: $("#answer1").val().trim(),
+      answer2: $("#answer2").val().trim(),
+      answer3: $("#answer3").val().trim(),
+      answer4: $("#answer4").val().trim(),
+      answer5: $("#answer5").val().trim(),
+      answer6: $("#answer6").val().trim(),
+      answer7: $("#answer7").val().trim(),
+      answer8: $("#answer8").val().trim(),
+      answer9: $("#answer9").val().trim(),
+      answer10: $("#answer10").val().trim(),
+    };
+    console.log("getting new friend details...");
+    console.log(newFriend);
+    // newFriend.push(friendsArray);
+
+    // This line is the magic. It"s very similar to the standard ajax function we used.
+    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+    // depending on if a tables is available or not.
+
+    $.post("/api/friends", newFriend,
+      function(data) {
+        if (data === "") {
+          alert("Please fill out all the fields.");
+        } else {
+          alert("Your best match is...");
+        }
+        // for (var i = 0; i < newFriend.length; i++) {
+        //   if (newFriend[i] === "") {
+        //     alert("Please fill out all the fields.");
+        //   } else {
+        //   alert("Your best match is...");
+        // }
+        // }
+        // $.each(newFriend, function(i, val) {
+        //   if (val === "") {
+        //     alert("Please fill out all the fields.");
+        //   } else {
+        //   alert("Your best match is...");
+        // }
+        //   console.log("not full info...");
+        //   return val;
+        // });
+        // var val = val;
+        // if (newFriend.val === "") {
+        //     alert("Please fill out all the fields.");
+        //   } else {
+        //   alert("Your best match is...");
+        // }
+        // If a table is available... tell user they are booked.
+        // if (newFriend.name === "") {
+        //   alert("Please enter a valid name.");
+        // } else if (newFriend.imageLink === "") {
+        //   alert("Please enter a valid image link.");
+        // } else if (newFriend.name === "" && newFriend.imageLink === "") {
+        //   alert("Please enter a valid name and image link.");
+        // } else {
+        //   alert("Your best match is...");
+        // }
+
+
+        //////////
+
+        function getArray(item) {
+        var answerList = [item.answer1,item.answer2].join(" ");
+        return answerList;
+      }
+      // getArray();
+        function mapFunction() {
+        var answerArray = newFriend.map(getArray);
+        console.log(answerArray);
+      }
+      mapFunction();
+
+        /////////
+        // Clear the form when submitting
+        $("#name").val(),
+        $("#image-link").val(),
+        $("#answer1").val(),
+        $("#answer2").val(),
+        $("#answer3").val(),
+        $("#answer4").val(),
+        $("#answer5").val(),
+        $("#answer6").val(),
+        $("#answer7").val(),
+        $("#answer8").val(),
+        $("#answer9").val(),
+        $("#answer10").val()
+      // });
+
+  
+      });
+  })
+
+</script>
